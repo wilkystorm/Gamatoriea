@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- ng-app attribute to bootstrap AngularJS -->
-<html ng-app> 
+<html ng-app="gamatoriea"> 
 	<head>
 		<!-- SASS CSS Framework imports
 		<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" 
@@ -22,15 +22,17 @@
 	        <![endif]-->
 		<!-- custom application javascript  --> 
 		<script src="Gamatoriea.js" type="text/javascript"></script> 
-		<!-- import agular -->
-		<script src="angular.min.js"></script>
 		<!-- import jquery -->
 		<script src="jquery-1.11.1.min.js"></script>
 		<!-- include mustache js -->
 		<script src="mustache.js-master/mustache.js"></script>
+                <!-- import agular -->
+		<script src="angular.min.js"></script>
+		<!-- import agular controllers -->
+                <script src="controllers.js"></script>
 	
 	</head>
-	<body>
+	<body ng-controller="PLayerListCtrl">
 		<!-- mustache demo output -->
 		<div id="target">Loading...</div>
 		<script id="template" type="x-tmpl-mustache">
@@ -49,21 +51,12 @@
 		<img src="sword.jpeg" />
 		<!-- simple example of angular at work -->
 		<div>
-		    <label>Player1:</label>
-			<input type="text" size="8" ng-model="player1" placeholder="Player1 "> <br>
-			<h3> {{player1}} </h3>
-			
-			<label>Player2:</label>
-			<input type="text" size="8" ng-model="player2" placeholder="Player2 ">
-			<h3> {{player2}} </h3>
-			
-			<label>Player3:</label>
-			<input type="text" size="8" ng-model="player3" placeholder="Player3 ">
-			<h3> {{player3}} </h3>
-			
-			<label>Player4:</label>
-			<input type="text" size="8"ng-model="player4" placeholder="Player4 ">
-			<h3> {{player4}} </h3>
+                    <li ng-repeat="player in players">
+		      <label>Player:</label>
+			<input type="text" size="8" ng-model="player.name">
+                        <br>
+			<h3> {{player.name}} </h3>
+		    </li> 	
 		</div>
 		<!-- end angular demo -->
 		<!-- html5 canvas elements for drawing the game board -->
@@ -75,12 +68,7 @@
                         onmouseout="cnvs_clearCoordinates()">
 			Your browser does not support the HTML5 canvas tag.
 		</canvas>
-		<div id="gamePlayers">
-		<h3> P1 => {{player1}}, P2 => {{player2}}, P3 => {{player3}}, P4 => {{player4}} </h3>
-		</div>
-                <br>
-                <br>
-                <br>
+		<br>
                 <div id="xycoordinates"></div>
 		<script>
 			// JQuery simple demo - rather than using body onload jQuery calls functions
