@@ -1,4 +1,3 @@
-//var app = angular.module("Gamatoriea",[]);
 var NUMBER_OF_ROWS = 7;
 var NUMBER_OF_COLS = 12;
 var BLOCK_SIZE;
@@ -11,7 +10,7 @@ function draw()
 
    var canvas = document.getElementById('gameBoard');
    var canvasHdr = document.getElementById('topHeader');
-   var canvasPlayers = document.getElementById('gamePlayers');
+   //var canvasPlayers = document.getElementById('gamePlayers');
    
    var viewportWidth = window.innerWidth;
    var viewportHeight = window.innerHeight;
@@ -31,13 +30,13 @@ function draw()
    canvasHdr.style.top = (viewportHeight - canvasHeight) / 4 + "px";
    canvasHdr.style.left = (viewportWidth - canvasWidth) / 2 + "px";
    
-   canvasPlayers.style.position = "absolute";
-   canvasPlayers.setAttribute("width", canvasWidth/8);
-   canvasPlayers.setAttribute("height", canvasHeight/4);
-   canvasPlayers.style.top = (viewportHeight - canvasHeight) * 1.75 + "px";
-   canvasPlayers.style.left = (viewportWidth - canvasWidth) / 2 + "px";
+   //canvasPlayers.style.position = "absolute";
+   //canvasPlayers.setAttribute("width", canvasWidth/8);
+   //canvasPlayers.setAttribute("height", canvasHeight/4);
+   //canvasPlayers.style.top = (viewportHeight - canvasHeight) * 1.75 + "px";
+   //canvasPlayers.style.left = (viewportWidth - canvasWidth) / 2 + "px";
    
-	if(canvasHdr.getContext)
+    if(canvasHdr.getContext)
     {
         ctxHdr = canvasHdr.getContext('2d');
         // Calculate the block size
@@ -46,16 +45,16 @@ function draw()
         drawHeader();
     }
 	
-	if(canvasPlayers.getContext)
+    /* if(canvasPlayers.getContext)
     {
         ctxPlayers = canvasPlayers.getContext('2d');
         // Calculate the block size
         BLOCK_SIZE = canvas.height / NUMBER_OF_ROWS
 		// Draw the players section
         drawPlayersSection();
-    }
+    } */
 	
-	if(canvas.getContext)
+    if(canvas.getContext)
     {
         ctx = canvas.getContext('2d');
         // Calculate the block size
@@ -108,9 +107,9 @@ function drawBoard()
     ctx.lineWidth = 3;
     ctx.strokeRect(0, 0, NUMBER_OF_COLS * BLOCK_SIZE, NUMBER_OF_ROWS * BLOCK_SIZE);
     // draw a line
-    ctx.moveTo(0,0);
-    ctx.lineTo(200,100);
-    ctx.stroke();
+    //ctx.moveTo(0,0);
+    //ctx.lineTo(200,100);
+    //ctx.stroke();
 
 }
 function drawColumn(iColCounter)
@@ -170,6 +169,18 @@ function getBlockColor(iColCounter, iBlockCounter)
     else
         cStartColor = (iBlockCounter % 2?BLOCK_COLOR_2:BLOCK_COLOR_1);
     return cStartColor;
+}
+
+function cnvs_getCoordinates(e)
+{
+x=e.clientX;
+y=e.clientY;
+document.getElementById("xycoordinates").innerHTML="Coordinates: (" + x + "," + y + ")";
+}
+
+function cnvs_clearCoordinates()
+{
+document.getElementById("xycoordinates").innerHTML="";
 }
 
 window.onload = window.onresize = draw;

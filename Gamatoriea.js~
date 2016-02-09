@@ -107,6 +107,11 @@ function drawBoard()
     // Draw outline around entire board
     ctx.lineWidth = 3;
     ctx.strokeRect(0, 0, NUMBER_OF_COLS * BLOCK_SIZE, NUMBER_OF_ROWS * BLOCK_SIZE);
+    // draw a line
+    ctx.moveTo(0,0);
+    ctx.lineTo(200,100);
+    ctx.stroke();
+
 }
 function drawColumn(iColCounter)
 {
