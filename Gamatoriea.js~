@@ -1,4 +1,4 @@
-var app = angular.module("Gamatoriea",[]);
+//var app = angular.module("Gamatoriea",[]);
 var NUMBER_OF_ROWS = 7;
 var NUMBER_OF_COLS = 12;
 var BLOCK_SIZE;
@@ -67,11 +67,11 @@ function draw()
 
 function drawHeader()
 {  
-	    for(iColCounter = 0; iColCounter < NUMBER_OF_COLS; iColCounter++)
+	    for(iColCounter = 1; iColCounter < NUMBER_OF_COLS; iColCounter++)
 		{
 			for(iBlockCounter = 0; iBlockCounter < 1; iBlockCounter++)
 			{
-				var vText = 1 + iColCounter;
+				var vText = iColCounter;
 				ctxHdr.font = "30px Arial";
 				ctxHdr.fillText(vText, iColCounter * BLOCK_SIZE, BLOCK_SIZE);
 				ctxHdr.strokeRect(iColCounter * BLOCK_SIZE, iBlockCounter * BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE);

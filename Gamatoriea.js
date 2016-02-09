@@ -67,11 +67,11 @@ function draw()
 
 function drawHeader()
 {  
-	    for(iColCounter = 0; iColCounter < NUMBER_OF_COLS; iColCounter++)
+	    for(iColCounter = 1; iColCounter < NUMBER_OF_COLS; iColCounter++)
 		{
 			for(iBlockCounter = 0; iBlockCounter < 1; iBlockCounter++)
 			{
-				var vText = 1 + iColCounter;
+				var vText = iColCounter;
 				ctxHdr.font = "30px Arial";
 				ctxHdr.fillText(vText, iColCounter * BLOCK_SIZE, BLOCK_SIZE);
 				ctxHdr.strokeRect(iColCounter * BLOCK_SIZE, iBlockCounter * BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE);
@@ -107,6 +107,11 @@ function drawBoard()
     // Draw outline around entire board
     ctx.lineWidth = 3;
     ctx.strokeRect(0, 0, NUMBER_OF_COLS * BLOCK_SIZE, NUMBER_OF_ROWS * BLOCK_SIZE);
+    // draw a line
+    ctx.moveTo(0,0);
+    ctx.lineTo(200,100);
+    ctx.stroke();
+
 }
 function drawColumn(iColCounter)
 {

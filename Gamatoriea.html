@@ -70,12 +70,18 @@
 		<canvas id="topHeader">
 			Your browser does not support the HTML5 canvas tag.
 		</canvas>
-		<canvas id="gameBoard">
+		<canvas id="gameBoard" 
+                        onmousemove="cnvs_getCoordinates(event)" 
+                        onmouseout="cnvs_clearCoordinates()">
 			Your browser does not support the HTML5 canvas tag.
 		</canvas>
 		<div id="gamePlayers">
 		<h3> P1 => {{player1}}, P2 => {{player2}}, P3 => {{player3}}, P4 => {{player4}} </h3>
 		</div>
+                <br>
+                <br>
+                <br>
+                <div id="xycoordinates"></div>
 		<script>
 			// JQuery simple demo - rather than using body onload jQuery calls functions
 			$( document ).ready(function() { loadUser(); draw(); } );
