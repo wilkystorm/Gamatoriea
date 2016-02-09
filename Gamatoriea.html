@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html ng-app> 
+<!-- ng-app designates application to auto-bootstrap in angular left blank defaults to ng -->
+<head>
+	<!-- SASS CSS Framework imports 
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+    <link href="/stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
+	  <!--[if IE]>
+		  <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
+	  <![endif]-->
+	
+	<!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	<!-- custom application javascript  --> 
+	<script src="Gamatoriea.js" type="text/javascript"></script> 
+	<!-- import agular -->
+	<script src="angular.min.js"></script>
+	<!-- import jquery -->
+	<script src="jquery-1.11.1.min.js"></script>
+	<!-- include mustache js -->
+	<script src="mustache.js-master/mustache.js"></script>
+	
+</head>
+<body>
+		<!-- mustache demo output -->
+		<div id="target">Loading...</div>
+		<script id="template" type="x-tmpl-mustache">
+			Hello {{ name }}!
+		</script>
+		<script>
+			// JQuery function uses Mustache
+			function loadUser() {
+			  var template = $('#template').html();
+			  Mustache.parse(template);   // optional, speeds up future uses
+			  var rendered = Mustache.render(template, {name: "Gamers"});
+			  $('#target').html(rendered);
+			}
+	    </script>
+		<!-- creative commons licensed cool picture of sword, ax, and shield -->
+		<img src="sword.jpeg" />
+		<!-- simple example of angular at work -->
+		 <div>
+		    <label>Player1:</label>
+			<input type="text" size="8" ng-model="player1" placeholder="Player1 "> <br>
+			<h3> {{player1}} </h3>
+			
+			<label>Player2:</label>
+			<input type="text" size="8" ng-model="player2" placeholder="Player2 ">
+			<h3> {{player2}} </h3>
+			
+			<label>Player3:</label>
+			<input type="text" size="8" ng-model="player3" placeholder="Player3 ">
+			<h3> {{player3}} </h3>
+			
+			<label>Player4:</label>
+			<input type="text" size="8"ng-model="player4" placeholder="Player4 ">
+			<h3> {{player4}} </h3>
+		</div>
+		<!-- end angular demo -->
+		<!-- html5 canvas elements for drawing the game board -->
+		<canvas id="topHeader">
+			Your browser does not support the HTML5 canvas tag.
+		</canvas>
+		<canvas id="gameBoard">
+			Your browser does not support the HTML5 canvas tag.
+		</canvas>
+		<div id="gamePlayers">
+			<h3> P1 => {{player1}}, P2 => {{player2}}, P3 => {{player3}}, P4 => {{player4}} </h3>
+		</div>
+		<script>
+			// JQuery simple demo - rather than using body onload using jQuery to call functions
+			$( document ).ready(function() { loadUser(); draw(); } );
+		</script>
+</body>
+</html>
