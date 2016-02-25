@@ -110,6 +110,10 @@ function drawBoard()
     //ctx.moveTo(0,0);
     //ctx.lineTo(200,100);
     //ctx.stroke();
+    // draw a circle
+    ctx.beginPath();
+    ctx.arc(95,50,40,0,2*Math.PI);
+    ctx.stroke();
 
 }
 function drawColumn(iColCounter)

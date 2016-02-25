@@ -11,9 +11,7 @@
 		      type="text/css" />
 		<![endif] -->
 	
-	        <!-- Bootstrap -->
-	        <link href="css/bootstrap.min.css" rel="stylesheet">
-
+	       
 	        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 	        <!--[if lt IE 9]>
@@ -53,10 +51,12 @@
 		<div>
 	            <h4> Enter name to game: </h4>  		
                     <li ng-repeat="player in players">
-		      <label>Player:</label>
-			<input type="text" size="8" ng-model="player.name">
-                        <br>
-			<h3> {{player.name}} </h3>
+		      <label>Player: {{player.number + 1}} </label>
+			<input type="text" size="8" ng-model="player.name"><br>
+                        <select ng-model="player.player_type" ng-options="key as val for (key, val) in options"> <img src={{player.img}} />
+                        </select>
+			<br>
+			<h3> {{player.name}} </h3> 
 		    </li> 	
 		</div>
 		<!-- end angular demo -->

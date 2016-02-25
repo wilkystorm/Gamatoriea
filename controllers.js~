@@ -1,11 +1,20 @@
 var gamatoriea = angular.module("gamatoriea",[]);
 
-gamatoriea.controller('PLayerListCtrl', function($scope) {
-  $scope.players = [
-    {'name': ''},
-    {'name': ''},
-    {'name': ''},
-    {'name': ''}
-  ];
-});
+gamatoriea.controller(
+ 'PLayerListCtrl', function($scope) {
+   var playerTypes = [
+    {'type' : 'Knight', 'img' : 'Knight.jpeg'},
+    {'type' : 'Wizard', 'img' : 'Wizard.jpeg'},
+    {'type' : 'Shera', 'img' : 'SheWarrior.jpeg'},
+    {'type' : 'Joker', 'img' : 'DadKnight.jpeg'}
+   ];
+   
+   $scope.players = [
+    {'name': '' , 'type' : 'Knight', 'img' : 'Knight.jpeg'},
+    {'name': '' , 'type' : 'Wizard', 'img' : 'Wizard.jpeg'},
+    {'name': '' , 'type' : 'Shera', 'img' : 'SheWarrior.jpeg'},
+    {'name': '' , 'type' : 'Joker', 'img' : 'DadKnight.jpeg'}
+   ];
+ }
+);
 
